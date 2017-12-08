@@ -1,0 +1,221 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk25'
+Slack : -23.189
+TNS   : -509.526
+
+Type  : Slow 1200mV 85C Model Setup 'ps2_keyboard:move|ps2_code_new'
+Slack : -4.971
+TNS   : -303.431
+
+Type  : Slow 1200mV 85C Model Setup 'CLK'
+Slack : -3.557
+TNS   : -95.326
+
+Type  : Slow 1200mV 85C Model Setup 'ps2_keyboard:move|debounce:debounce_ps2_clk|result'
+Slack : -1.204
+TNS   : -1.540
+
+Type  : Slow 1200mV 85C Model Setup 'player1x[0]'
+Slack : -1.147
+TNS   : -8.274
+
+Type  : Slow 1200mV 85C Model Setup 'p1_button'
+Slack : 2.930
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'p1_button'
+Slack : -5.153
+TNS   : -67.024
+
+Type  : Slow 1200mV 85C Model Hold 'player1x[0]'
+Slack : -1.487
+TNS   : -7.989
+
+Type  : Slow 1200mV 85C Model Hold 'CLK'
+Slack : 0.386
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ps2_keyboard:move|debounce:debounce_ps2_clk|result'
+Slack : 0.440
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ps2_keyboard:move|ps2_code_new'
+Slack : 0.440
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk25'
+Slack : 0.656
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -64.680
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'p1_button'
+Slack : -3.000
+TNS   : -3.589
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk25'
+Slack : -1.285
+TNS   : -89.950
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ps2_keyboard:move|ps2_code_new'
+Slack : -1.285
+TNS   : -82.240
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ps2_keyboard:move|debounce:debounce_ps2_clk|result'
+Slack : -1.285
+TNS   : -14.135
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'player1x[0]'
+Slack : 0.338
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk25'
+Slack : -20.947
+TNS   : -461.241
+
+Type  : Slow 1200mV 0C Model Setup 'ps2_keyboard:move|ps2_code_new'
+Slack : -4.454
+TNS   : -272.544
+
+Type  : Slow 1200mV 0C Model Setup 'CLK'
+Slack : -3.127
+TNS   : -82.272
+
+Type  : Slow 1200mV 0C Model Setup 'ps2_keyboard:move|debounce:debounce_ps2_clk|result'
+Slack : -1.093
+TNS   : -1.093
+
+Type  : Slow 1200mV 0C Model Setup 'player1x[0]'
+Slack : -0.873
+TNS   : -7.149
+
+Type  : Slow 1200mV 0C Model Setup 'p1_button'
+Slack : 2.443
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'p1_button'
+Slack : -4.577
+TNS   : -59.473
+
+Type  : Slow 1200mV 0C Model Hold 'player1x[0]'
+Slack : -1.396
+TNS   : -7.279
+
+Type  : Slow 1200mV 0C Model Hold 'CLK'
+Slack : 0.339
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ps2_keyboard:move|ps2_code_new'
+Slack : 0.387
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ps2_keyboard:move|debounce:debounce_ps2_clk|result'
+Slack : 0.404
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk25'
+Slack : 0.598
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -64.680
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'p1_button'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk25'
+Slack : -1.285
+TNS   : -89.950
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ps2_keyboard:move|ps2_code_new'
+Slack : -1.285
+TNS   : -82.240
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ps2_keyboard:move|debounce:debounce_ps2_clk|result'
+Slack : -1.285
+TNS   : -14.135
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'player1x[0]'
+Slack : 0.272
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk25'
+Slack : -10.733
+TNS   : -228.255
+
+Type  : Fast 1200mV 0C Model Setup 'ps2_keyboard:move|ps2_code_new'
+Slack : -2.042
+TNS   : -120.489
+
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -1.530
+TNS   : -27.179
+
+Type  : Fast 1200mV 0C Model Setup 'player1x[0]'
+Slack : -0.782
+TNS   : -4.485
+
+Type  : Fast 1200mV 0C Model Setup 'ps2_keyboard:move|debounce:debounce_ps2_clk|result'
+Slack : -0.379
+TNS   : -0.379
+
+Type  : Fast 1200mV 0C Model Setup 'p1_button'
+Slack : 2.124
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'p1_button'
+Slack : -3.057
+TNS   : -41.647
+
+Type  : Fast 1200mV 0C Model Hold 'player1x[0]'
+Slack : -0.718
+TNS   : -4.484
+
+Type  : Fast 1200mV 0C Model Hold 'CLK'
+Slack : 0.108
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ps2_keyboard:move|debounce:debounce_ps2_clk|result'
+Slack : 0.192
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ps2_keyboard:move|ps2_code_new'
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk25'
+Slack : 0.298
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -54.023
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'p1_button'
+Slack : -3.000
+TNS   : -27.983
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk25'
+Slack : -1.000
+TNS   : -70.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ps2_keyboard:move|ps2_code_new'
+Slack : -1.000
+TNS   : -64.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ps2_keyboard:move|debounce:debounce_ps2_clk|result'
+Slack : -1.000
+TNS   : -11.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'player1x[0]'
+Slack : 0.125
+TNS   : 0.000
+
+------------------------------------------------------------

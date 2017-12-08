@@ -1,0 +1,1436 @@
+Analysis & Synthesis report for TicTacToe
+Wed Dec 06 01:26:05 2017
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: ps2_keyboard:move
+ 14. Parameter Settings for User Entity Instance: ps2_keyboard:move|debounce:debounce_ps2_clk
+ 15. Parameter Settings for User Entity Instance: ps2_keyboard:move|debounce:debounce_ps2_data
+ 16. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult6
+ 17. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult4
+ 18. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult7
+ 19. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult9
+ 20. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult5
+ 21. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult8
+ 22. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult3
+ 23. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult2
+ 24. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1
+ 25. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 26. lpm_mult Parameter Settings by Entity Instance
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Dec 06 01:26:04 2017      ;
+; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
+; Revision Name                      ; TicTacToe                                  ;
+; Top-level Entity Name              ; TicTacToe                                  ;
+; Family                             ; Cyclone IV E                               ;
+; Total logic elements               ; 1,597                                      ;
+;     Total combinational functions  ; 1,572                                      ;
+;     Dedicated logic registers      ; 193                                        ;
+; Total registers                    ; 193                                        ;
+; Total pins                         ; 16                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 56                                         ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; TicTacToe          ; TicTacToe          ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ; < 0.1%      ;
+;     Processors 5-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                           ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                       ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
+; ps2_keyboard.vhd                 ; yes             ; User VHDL File               ; C:/Users/yujia/Desktop/TicTacToe/ps2_keyboard.vhd  ;         ;
+; debounce.vhd                     ; yes             ; User VHDL File               ; C:/Users/yujia/Desktop/TicTacToe/debounce.vhd      ;         ;
+; TicTacToe.vhd                    ; yes             ; User VHDL File               ; C:/Users/yujia/Desktop/TicTacToe/TicTacToe.vhd     ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; d:/quartus/libraries/megafunctions/lpm_mult.tdf    ;         ;
+; aglobal150.inc                   ; yes             ; Megafunction                 ; d:/quartus/libraries/megafunctions/aglobal150.inc  ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/quartus/libraries/megafunctions/lpm_add_sub.inc ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; d:/quartus/libraries/megafunctions/multcore.inc    ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/quartus/libraries/megafunctions/bypassff.inc    ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/quartus/libraries/megafunctions/altshift.inc    ;         ;
+; db/mult_46t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/yujia/Desktop/TicTacToe/db/mult_46t.tdf   ;         ;
+; db/mult_c8t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/yujia/Desktop/TicTacToe/db/mult_c8t.tdf   ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,597     ;
+;                                             ;           ;
+; Total combinational functions               ; 1572      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 388       ;
+;     -- 3 input functions                    ; 626       ;
+;     -- <=2 input functions                  ; 558       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 527       ;
+;     -- arithmetic mode                      ; 1045      ;
+;                                             ;           ;
+; Total registers                             ; 193       ;
+;     -- Dedicated logic registers            ; 193       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 16        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 56        ;
+;                                             ;           ;
+; Maximum fan-out node                        ; RST~input ;
+; Maximum fan-out                             ; 91        ;
+; Total fan-out                               ; 5820      ;
+; Average fan-out                             ; 3.14      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                     ;
++------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+--------------+
+; Compilation Hierarchy Node         ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Library Name ;
++------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+--------------+
+; |TicTacToe                         ; 1572 (1241)       ; 193 (135)    ; 0           ; 56           ; 0       ; 28        ; 16   ; 0            ; |TicTacToe                                              ; work         ;
+;    |lpm_mult:Mult0|                ; 22 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult0                               ; work         ;
+;       |mult_c8t:auto_generated|    ; 22 (22)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult0|mult_c8t:auto_generated       ; work         ;
+;    |lpm_mult:Mult1|                ; 22 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult1                               ; work         ;
+;       |mult_c8t:auto_generated|    ; 22 (22)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult1|mult_c8t:auto_generated       ; work         ;
+;    |lpm_mult:Mult2|                ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult2                               ; work         ;
+;       |mult_46t:auto_generated|    ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult2|mult_46t:auto_generated       ; work         ;
+;    |lpm_mult:Mult3|                ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult3                               ; work         ;
+;       |mult_46t:auto_generated|    ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult3|mult_46t:auto_generated       ; work         ;
+;    |lpm_mult:Mult4|                ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult4                               ; work         ;
+;       |mult_46t:auto_generated|    ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult4|mult_46t:auto_generated       ; work         ;
+;    |lpm_mult:Mult5|                ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult5                               ; work         ;
+;       |mult_46t:auto_generated|    ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult5|mult_46t:auto_generated       ; work         ;
+;    |lpm_mult:Mult6|                ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult6                               ; work         ;
+;       |mult_46t:auto_generated|    ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult6|mult_46t:auto_generated       ; work         ;
+;    |lpm_mult:Mult7|                ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult7                               ; work         ;
+;       |mult_46t:auto_generated|    ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult7|mult_46t:auto_generated       ; work         ;
+;    |lpm_mult:Mult8|                ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult8                               ; work         ;
+;       |mult_46t:auto_generated|    ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult8|mult_46t:auto_generated       ; work         ;
+;    |lpm_mult:Mult9|                ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult9                               ; work         ;
+;       |mult_46t:auto_generated|    ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |TicTacToe|lpm_mult:Mult9|mult_46t:auto_generated       ; work         ;
+;    |ps2_keyboard:move|             ; 63 (21)           ; 58 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TicTacToe|ps2_keyboard:move                            ; work         ;
+;       |debounce:debounce_ps2_clk|  ; 21 (21)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TicTacToe|ps2_keyboard:move|debounce:debounce_ps2_clk  ; work         ;
+;       |debounce:debounce_ps2_data| ; 21 (21)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TicTacToe|ps2_keyboard:move|debounce:debounce_ps2_data ; work         ;
++------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 28          ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 56          ;
+; Signed Embedded Multipliers           ; 2           ;
+; Unsigned Embedded Multipliers         ; 8           ;
+; Mixed Sign Embedded Multipliers       ; 18          ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; A[0]                                                ; A[0]                ; yes                    ;
+; A[1]                                                ; A[0]                ; yes                    ;
+; B[0]                                                ; B[0]                ; yes                    ;
+; B[1]                                                ; B[0]                ; yes                    ;
+; C[0]                                                ; C[0]                ; yes                    ;
+; C[1]                                                ; C[0]                ; yes                    ;
+; D[0]                                                ; D[0]                ; yes                    ;
+; D[1]                                                ; D[0]                ; yes                    ;
+; E[0]                                                ; E[0]                ; yes                    ;
+; E[1]                                                ; E[0]                ; yes                    ;
+; F[0]                                                ; F[0]                ; yes                    ;
+; F[1]                                                ; F[0]                ; yes                    ;
+; G[0]                                                ; G[0]                ; yes                    ;
+; G[1]                                                ; G[0]                ; yes                    ;
+; H[0]                                                ; H[0]                ; yes                    ;
+; H[1]                                                ; H[0]                ; yes                    ;
+; I[0]                                                ; I[0]                ; yes                    ;
+; I[1]                                                ; I[0]                ; yes                    ;
+; winner[0]                                           ; GND                 ; yes                    ;
+; winner[1]                                           ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 20  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 193   ;
+; Number of registers using Synchronous Clear  ; 12    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 70    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 58    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; RGB[0]~reg0                            ; 1       ;
+; RGB[1]~reg0                            ; 1       ;
+; RGB[2]~reg0                            ; 1       ;
+; player1y[0]                            ; 9       ;
+; player1x[0]                            ; 7       ;
+; Total number of inverted registers = 5 ;         ;
++----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |TicTacToe|ps2_keyboard:move|count_idle[9]                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TicTacToe|ps2_keyboard:move|debounce:debounce_ps2_clk|counter_out[0]  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TicTacToe|ps2_keyboard:move|debounce:debounce_ps2_data|counter_out[1] ;
+; 7:1                ; 31 bits   ; 124 LEs       ; 124 LEs              ; 0 LEs                  ; Yes        ; |TicTacToe|player1x[26]                                                ;
+; 7:1                ; 31 bits   ; 124 LEs       ; 124 LEs              ; 0 LEs                  ; Yes        ; |TicTacToe|player1y[10]                                                ;
+; 44:1               ; 2 bits    ; 58 LEs        ; 58 LEs               ; 0 LEs                  ; Yes        ; |TicTacToe|RGB[2]~reg0                                                 ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |TicTacToe|winner[0]                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ps2_keyboard:move ;
++-----------------------+----------+-----------------------------+
+; Parameter Name        ; Value    ; Type                        ;
++-----------------------+----------+-----------------------------+
+; clk_freq              ; 50000000 ; Signed Integer              ;
+; debounce_counter_size ; 8        ; Signed Integer              ;
++-----------------------+----------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ps2_keyboard:move|debounce:debounce_ps2_clk ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; counter_size   ; 8     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ps2_keyboard:move|debounce:debounce_ps2_data ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; counter_size   ; 8     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult6                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_46t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult4                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_46t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult7                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_46t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult9                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_46t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult5                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_46t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult8                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_46t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult3                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_46t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult2                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_46t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 7            ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 39           ; Untyped             ;
+; LPM_WIDTHR                                     ; 39           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; YES          ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_c8t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 7            ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 39           ; Untyped             ;
+; LPM_WIDTHR                                     ; 39           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; YES          ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_c8t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 10             ;
+; Entity Instance                       ; lpm_mult:Mult6 ;
+;     -- LPM_WIDTHA                     ; 32             ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 64             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult4 ;
+;     -- LPM_WIDTHA                     ; 32             ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 64             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult7 ;
+;     -- LPM_WIDTHA                     ; 32             ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 64             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult9 ;
+;     -- LPM_WIDTHA                     ; 32             ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 64             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult5 ;
+;     -- LPM_WIDTHA                     ; 32             ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 64             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult8 ;
+;     -- LPM_WIDTHA                     ; 32             ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 64             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult3 ;
+;     -- LPM_WIDTHA                     ; 32             ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 64             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult2 ;
+;     -- LPM_WIDTHA                     ; 32             ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 64             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 7              ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 39             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; YES            ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 7              ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 39             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; YES            ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 16                          ;
+; cycloneiii_ff         ; 193                         ;
+;     CLR               ; 38                          ;
+;     ENA               ; 14                          ;
+;     ENA CLR           ; 32                          ;
+;     ENA SCLR          ; 12                          ;
+;     plain             ; 97                          ;
+; cycloneiii_lcell_comb ; 1575                        ;
+;     arith             ; 1045                        ;
+;         2 data inputs ; 473                         ;
+;         3 data inputs ; 572                         ;
+;     normal            ; 530                         ;
+;         1 data inputs ; 25                          ;
+;         2 data inputs ; 63                          ;
+;         3 data inputs ; 54                          ;
+;         4 data inputs ; 388                         ;
+; cycloneiii_mac_mult   ; 28                          ;
+; cycloneiii_mac_out    ; 28                          ;
+;                       ;                             ;
+; Max LUT depth         ; 14.20                       ;
+; Average LUT depth     ; 6.34                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+    Info: Processing started: Wed Dec 06 01:25:51 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TicTacToe -c TicTacToe
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file ps2_keyboard.vhd
+    Info (12022): Found design unit 1: ps2_keyboard-logic
+    Info (12023): Found entity 1: ps2_keyboard
+Info (12021): Found 2 design units, including 1 entities, in source file debounce.vhd
+    Info (12022): Found design unit 1: debounce-logic
+    Info (12023): Found entity 1: debounce
+Info (12021): Found 2 design units, including 1 entities, in source file tictactoe.vhd
+    Info (12022): Found design unit 1: TicTacToe-Behavioral
+    Info (12023): Found entity 1: TicTacToe
+Info (12127): Elaborating entity "TicTacToe" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(267): signal "player1x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(268): signal "player1y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(269): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(269): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(270): signal "p1_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(272): signal "p2_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(276): signal "player1x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(277): signal "player1y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(278): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(278): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(279): signal "p1_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(281): signal "p2_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(285): signal "player1x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(286): signal "player1y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(287): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(287): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(288): signal "p1_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(290): signal "p2_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(294): signal "player1x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(295): signal "player1y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(296): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(296): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(297): signal "p1_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(299): signal "p2_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(303): signal "player1x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(304): signal "player1y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(305): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(305): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(306): signal "p1_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(308): signal "p2_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(312): signal "player1x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(313): signal "player1y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(314): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(314): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(315): signal "p1_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(317): signal "p2_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(321): signal "player1x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(322): signal "player1y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(323): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(323): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(324): signal "p1_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(326): signal "p2_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(330): signal "player1x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(331): signal "player1y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(332): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(332): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(333): signal "p1_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(335): signal "p2_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(339): signal "player1x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(340): signal "player1y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(341): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(341): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(342): signal "p1_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(344): signal "p2_button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(349): signal "RST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at TicTacToe.vhd(265): inferring latch(es) for signal or variable "A", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at TicTacToe.vhd(265): inferring latch(es) for signal or variable "B", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at TicTacToe.vhd(265): inferring latch(es) for signal or variable "C", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at TicTacToe.vhd(265): inferring latch(es) for signal or variable "D", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at TicTacToe.vhd(265): inferring latch(es) for signal or variable "E", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at TicTacToe.vhd(265): inferring latch(es) for signal or variable "F", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at TicTacToe.vhd(265): inferring latch(es) for signal or variable "G", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at TicTacToe.vhd(265): inferring latch(es) for signal or variable "H", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at TicTacToe.vhd(265): inferring latch(es) for signal or variable "I", which holds its previous value in one or more paths through the process
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(370): signal "ps2_code_new1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(415): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(415): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(415): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(417): signal "D" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(417): signal "E" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(417): signal "F" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(419): signal "G" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(419): signal "H" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(419): signal "I" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(421): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(421): signal "D" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(421): signal "G" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(423): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(423): signal "E" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(423): signal "H" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(425): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(425): signal "F" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(425): signal "I" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(427): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(427): signal "E" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(427): signal "I" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(429): signal "G" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(429): signal "E" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(429): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(433): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(433): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(433): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(435): signal "D" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(435): signal "E" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(435): signal "F" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(437): signal "G" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(437): signal "H" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(437): signal "I" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(439): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(439): signal "D" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(439): signal "G" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(441): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(441): signal "E" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(441): signal "H" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(443): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(443): signal "F" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(443): signal "I" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(445): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(445): signal "E" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(445): signal "I" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(447): signal "G" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(447): signal "E" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(447): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TicTacToe.vhd(451): signal "RST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at TicTacToe.vhd(413): inferring latch(es) for signal or variable "winner", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "winner[0]" at TicTacToe.vhd(413)
+Info (10041): Inferred latch for "winner[1]" at TicTacToe.vhd(413)
+Info (10041): Inferred latch for "I[0]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[1]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[2]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[3]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[4]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[5]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[6]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[7]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[8]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[9]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[10]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[11]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[12]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[13]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[14]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[15]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[16]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[17]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[18]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[19]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[20]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[21]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[22]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[23]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[24]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[25]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[26]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[27]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[28]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[29]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[30]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "I[31]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[0]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[1]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[2]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[3]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[4]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[5]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[6]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[7]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[8]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[9]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[10]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[11]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[12]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[13]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[14]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[15]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[16]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[17]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[18]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[19]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[20]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[21]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[22]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[23]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[24]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[25]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[26]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[27]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[28]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[29]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[30]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "H[31]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[0]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[1]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[2]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[3]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[4]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[5]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[6]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[7]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[8]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[9]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[10]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[11]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[12]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[13]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[14]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[15]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[16]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[17]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[18]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[19]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[20]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[21]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[22]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[23]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[24]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[25]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[26]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[27]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[28]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[29]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[30]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "G[31]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[0]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[1]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[2]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[3]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[4]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[5]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[6]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[7]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[8]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[9]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[10]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[11]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[12]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[13]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[14]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[15]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[16]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[17]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[18]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[19]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[20]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[21]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[22]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[23]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[24]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[25]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[26]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[27]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[28]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[29]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[30]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "F[31]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[0]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[1]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[2]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[3]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[4]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[5]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[6]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[7]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[8]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[9]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[10]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[11]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[12]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[13]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[14]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[15]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[16]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[17]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[18]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[19]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[20]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[21]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[22]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[23]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[24]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[25]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[26]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[27]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[28]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[29]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[30]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "E[31]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[0]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[1]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[2]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[3]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[4]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[5]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[6]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[7]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[8]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[9]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[10]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[11]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[12]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[13]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[14]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[15]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[16]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[17]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[18]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[19]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[20]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[21]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[22]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[23]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[24]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[25]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[26]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[27]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[28]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[29]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[30]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "D[31]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[0]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[1]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[2]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[3]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[4]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[5]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[6]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[7]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[8]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[9]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[10]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[11]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[12]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[13]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[14]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[15]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[16]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[17]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[18]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[19]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[20]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[21]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[22]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[23]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[24]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[25]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[26]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[27]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[28]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[29]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[30]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "C[31]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[0]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[1]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[2]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[3]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[4]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[5]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[6]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[7]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[8]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[9]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[10]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[11]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[12]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[13]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[14]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[15]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[16]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[17]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[18]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[19]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[20]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[21]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[22]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[23]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[24]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[25]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[26]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[27]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[28]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[29]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[30]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "B[31]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[0]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[1]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[2]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[3]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[4]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[5]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[6]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[7]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[8]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[9]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[10]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[11]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[12]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[13]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[14]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[15]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[16]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[17]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[18]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[19]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[20]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[21]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[22]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[23]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[24]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[25]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[26]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[27]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[28]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[29]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[30]" at TicTacToe.vhd(265)
+Info (10041): Inferred latch for "A[31]" at TicTacToe.vhd(265)
+Info (12128): Elaborating entity "ps2_keyboard" for hierarchy "ps2_keyboard:move"
+Info (12128): Elaborating entity "debounce" for hierarchy "ps2_keyboard:move|debounce:debounce_ps2_clk"
+Info (278001): Inferred 10 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult6"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult4"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult7"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult9"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult5"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult8"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult3"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult2"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult1"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0"
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult6"
+Info (12133): Instantiated megafunction "lpm_mult:Mult6" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_46t.tdf
+    Info (12023): Found entity 1: mult_46t
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult1"
+Info (12133): Instantiated megafunction "lpm_mult:Mult1" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "7"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "39"
+    Info (12134): Parameter "LPM_WIDTHR" = "39"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_c8t.tdf
+    Info (12023): Found entity 1: mult_c8t
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "lpm_mult:Mult2|mult_46t:auto_generated|mac_mult7"
+        Warning (14320): Synthesized away node "lpm_mult:Mult2|mult_46t:auto_generated|mac_out8"
+        Warning (14320): Synthesized away node "lpm_mult:Mult3|mult_46t:auto_generated|mac_mult7"
+        Warning (14320): Synthesized away node "lpm_mult:Mult3|mult_46t:auto_generated|mac_out8"
+        Warning (14320): Synthesized away node "lpm_mult:Mult8|mult_46t:auto_generated|mac_mult7"
+        Warning (14320): Synthesized away node "lpm_mult:Mult8|mult_46t:auto_generated|mac_out8"
+        Warning (14320): Synthesized away node "lpm_mult:Mult5|mult_46t:auto_generated|mac_mult7"
+        Warning (14320): Synthesized away node "lpm_mult:Mult5|mult_46t:auto_generated|mac_out8"
+        Warning (14320): Synthesized away node "lpm_mult:Mult9|mult_46t:auto_generated|mac_mult7"
+        Warning (14320): Synthesized away node "lpm_mult:Mult9|mult_46t:auto_generated|mac_out8"
+        Warning (14320): Synthesized away node "lpm_mult:Mult7|mult_46t:auto_generated|mac_mult7"
+        Warning (14320): Synthesized away node "lpm_mult:Mult7|mult_46t:auto_generated|mac_out8"
+        Warning (14320): Synthesized away node "lpm_mult:Mult4|mult_46t:auto_generated|mac_mult7"
+        Warning (14320): Synthesized away node "lpm_mult:Mult4|mult_46t:auto_generated|mac_out8"
+        Warning (14320): Synthesized away node "lpm_mult:Mult6|mult_46t:auto_generated|mac_mult7"
+        Warning (14320): Synthesized away node "lpm_mult:Mult6|mult_46t:auto_generated|mac_out8"
+Info (13014): Ignored 774 buffer(s)
+    Info (13019): Ignored 774 SOFT buffer(s)
+Warning (13012): Latch A[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch A[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch B[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch B[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch C[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch C[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch D[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch D[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch E[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch E[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch F[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch F[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch G[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch G[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch I[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Warning (13012): Latch I[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal p1_button
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "move_left"
+    Warning (15610): No output dependent on input pin "move_right"
+    Warning (15610): No output dependent on input pin "move_up"
+    Warning (15610): No output dependent on input pin "move_down"
+Info (21057): Implemented 1670 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 6 output pins
+    Info (21061): Implemented 1598 logic cells
+    Info (21062): Implemented 56 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 170 warnings
+    Info: Peak virtual memory: 803 megabytes
+    Info: Processing ended: Wed Dec 06 01:26:05 2017
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:23
+
+
